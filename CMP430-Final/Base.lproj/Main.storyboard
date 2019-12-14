@@ -1,24 +1,179 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="COk-Tj-TaV">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--5cards-->
+        <scene sceneID="KrM-3f-REj">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <viewController title="5cards" id="9Kt-NI-XBM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3cp-z7-7Cj">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="EKj-Sc-tse"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="5cards" id="OMz-rM-XRZ"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R2r-UE-3Gj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-702" y="133"/>
+        </scene>
+        <!--3cards-->
+        <scene sceneID="dPd-qV-Hbs">
+            <objects>
+                <viewController title="3cards" id="Qoa-Cm-86a" customClass="ThreeCardViewController" customModule="CMP430_Final" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Jfh-C6-YRX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="5lX-3r-dFU">
+                                <rect key="frame" x="30" y="44" width="354" height="339"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fbG-cW-zz3" customClass="CardContainerView" customModule="CMP430_Final" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="354" height="130"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="5bm-2O-Bno">
+                                        <rect key="frame" x="0.0" y="139" width="354" height="26.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rzf-zl-Cdc">
+                                                <rect key="frame" x="0.0" y="0.0" width="108" height="26.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Balance:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JAo-R7-lrU">
+                                                <rect key="frame" x="117" y="0.0" width="146" height="26.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bet:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dK1-TP-cQH">
+                                                <rect key="frame" x="272" y="0.0" width="82" height="26.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IiU-qf-jux" customClass="CardContainerView" customModule="CMP430_Final" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="174.5" width="354" height="129.5"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HAn-Eo-83E">
+                                        <rect key="frame" x="0.0" y="313" width="354" height="26"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="5bm-2O-Bno" firstAttribute="top" secondItem="5lX-3r-dFU" secondAttribute="top" constant="139" id="1t3-M0-Tdf"/>
+                                    <constraint firstAttribute="bottom" secondItem="IiU-qf-jux" secondAttribute="bottom" constant="35" id="3iN-Fh-LXa"/>
+                                    <constraint firstItem="fbG-cW-zz3" firstAttribute="trailing" secondItem="IiU-qf-jux" secondAttribute="trailing" id="Zao-Eg-5EY"/>
+                                    <constraint firstAttribute="trailing" secondItem="fbG-cW-zz3" secondAttribute="trailing" id="lho-XX-ebx"/>
+                                </constraints>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cardback" translatesAutoresizingMaskIntoConstraints="NO" id="1un-mH-43u">
+                                <rect key="frame" x="20" y="399" width="67" height="83"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="83" id="dA8-VY-lv3"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="t9s-Fe-AdC">
+                                <rect key="frame" x="30" y="510" width="189" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dzg-7a-7ME">
+                                        <rect key="frame" x="0.0" y="0.0" width="39" height="30"/>
+                                        <color key="backgroundColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Deal">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="dealBtnPressed:" destination="Qoa-Cm-86a" eventType="touchUpInside" id="Wev-Bn-k7P"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c44-QI-Sz1">
+                                        <rect key="frame" x="75" y="0.0" width="39" height="30"/>
+                                        <color key="backgroundColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Bet">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="betBtnPressed:" destination="Qoa-Cm-86a" eventType="touchUpInside" id="c4g-V5-803"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SWS-2Y-G9e">
+                                        <rect key="frame" x="150" y="0.0" width="39" height="30"/>
+                                        <color key="backgroundColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Reset">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="resetBtnPressed:" destination="Qoa-Cm-86a" eventType="touchUpInside" id="0Wm-o5-5o6"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="1un-mH-43u" firstAttribute="top" secondItem="5lX-3r-dFU" secondAttribute="bottom" constant="16" id="FhF-D1-t5K"/>
+                            <constraint firstItem="kif-Pn-rj8" firstAttribute="trailing" secondItem="1un-mH-43u" secondAttribute="trailing" constant="327" id="MQx-aG-IS7"/>
+                            <constraint firstItem="1un-mH-43u" firstAttribute="top" secondItem="Jfh-C6-YRX" secondAttribute="top" constant="399" id="gQF-ui-fpi"/>
+                            <constraint firstItem="5lX-3r-dFU" firstAttribute="top" secondItem="kif-Pn-rj8" secondAttribute="top" id="hWH-zy-iM9"/>
+                            <constraint firstItem="t9s-Fe-AdC" firstAttribute="top" secondItem="1un-mH-43u" secondAttribute="bottom" constant="28" id="ogT-iH-9vA"/>
+                            <constraint firstItem="5lX-3r-dFU" firstAttribute="leading" secondItem="kif-Pn-rj8" secondAttribute="leading" constant="30" id="sVr-xl-WJh"/>
+                            <constraint firstItem="5lX-3r-dFU" firstAttribute="leading" secondItem="t9s-Fe-AdC" secondAttribute="leading" id="u49-31-u34"/>
+                            <constraint firstItem="5lX-3r-dFU" firstAttribute="centerX" secondItem="Jfh-C6-YRX" secondAttribute="centerX" id="w7R-pf-R7G"/>
+                            <constraint firstItem="1un-mH-43u" firstAttribute="leading" secondItem="Jfh-C6-YRX" secondAttribute="leadingMargin" id="zLo-bS-OEB"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="kif-Pn-rj8"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="3cards" id="9fb-fU-2AS"/>
+                    <connections>
+                        <outlet property="cardContainerView" destination="fbG-cW-zz3" id="aeA-i9-Sqm"/>
+                        <outlet property="cpuCardContainerView" destination="IiU-qf-jux" id="ouY-Jy-5Oh"/>
+                        <outlet property="cpuScoreLbl" destination="HAn-Eo-83E" id="eHt-F7-Cp7"/>
+                        <outlet property="dealBtn" destination="dzg-7a-7ME" id="uLj-oS-obA"/>
+                        <outlet property="deckImage" destination="1un-mH-43u" id="kyg-nT-xHF"/>
+                        <outlet property="userBalanceLbl" destination="JAo-R7-lrU" id="eym-LS-a0v"/>
+                        <outlet property="userBetLbl" destination="dK1-TP-cQH" id="GeJ-gW-Tzc"/>
+                        <outlet property="userScoreLbl" destination="Rzf-zl-Cdc" id="aNJ-QO-cbv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5LR-A7-KgP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-702.89855072463774" y="-516.29464285714289"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="5Zw-bR-1Mf">
+            <objects>
+                <tabBarController id="COk-Tj-TaV" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="NPV-gK-mXa">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Qoa-Cm-86a" kind="relationship" relationship="viewControllers" id="rNV-1D-KjU"/>
+                        <segue destination="9Kt-NI-XBM" kind="relationship" relationship="viewControllers" id="Tvb-AL-35a"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="btK-Cl-bkk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1618" y="-193"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="cardback" width="614.5" height="960"/>
+    </resources>
 </document>
