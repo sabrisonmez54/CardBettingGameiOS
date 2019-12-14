@@ -130,6 +130,7 @@ class ThreeCardViewController: UIViewController {
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 5.0, execute:
                 {
+                    self.numberOfswipes = 0
                     self.game.userScore = 0
                     self.game.userBet = 0
                     self.game.cpuScore = 0
@@ -241,6 +242,12 @@ class ThreeCardViewController: UIViewController {
                         
                      })
                     print("usernew: \(game.cardsInGameUser)")
+                }else{
+                    let alert = UIAlertController(title: "Already Used", message: "You only have the option of trading up to 1 card to improve your score", preferredStyle: .alert)
+                    
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    
+                    self.present(alert, animated: true)
                 }
                 
                 
@@ -258,8 +265,6 @@ class ThreeCardViewController: UIViewController {
     
     func updateUserCard() {
         
-        
-               // print(game.cardsInGameUser.endIndex)
             let subView = PlayingCardView()
             subView.rank = game.cardsInGameUser[game.cardsInGameUser.endIndex - 1].rank.order
             subView.suit = game.cardsInGameUser[game.cardsInGameUser.endIndex - 1].suit
@@ -272,8 +277,6 @@ class ThreeCardViewController: UIViewController {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
                 UIView.transition(with: subView, duration: 1, options: .transitionFlipFromLeft, animations: {
                     
-                    //view.transform = CGAffineTransform(scaleX: 3, y: 3)
-                    
                     subView.isFaceUp.toggle()
                     
                 }) { finished in
@@ -283,20 +286,15 @@ class ThreeCardViewController: UIViewController {
             })
         
         
-        for view in self.cardContainerView.subviews {
+        for view in self.cardContainerView.subviews
+        {
             let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
             swipeRight.direction = UISwipeGestureRecognizer.Direction.right
             view.addGestureRecognizer(swipeRight)
-            //
-            //                let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(getIndex(_:)))
-            //                view.addGestureRecognizer(gestureRecognizer)
-            //
         }
         self.game.calcUserScore()
         self.updateLabels()
         numberOfPresses += 1
     }
-    
-   
 }
 
