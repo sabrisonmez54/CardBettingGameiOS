@@ -35,7 +35,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cardback" translatesAutoresizingMaskIntoConstraints="NO" id="1un-mH-43u">
-                                <rect key="frame" x="20" y="393" width="67" height="83"/>
+                                <rect key="frame" x="20" y="394" width="67" height="83"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="67" id="6Fz-Pd-VjT"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="65" id="CIM-3S-bvu"/>
@@ -70,13 +70,13 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HAn-Eo-83E">
-                                <rect key="frame" x="16" y="358.5" width="382" height="26.5"/>
+                                <rect key="frame" x="16" y="358.5" width="382" height="27.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="t9s-Fe-AdC">
-                                <rect key="frame" x="16" y="484" width="382" height="30"/>
+                                <rect key="frame" x="16" y="485" width="382" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dzg-7a-7ME">
                                         <rect key="frame" x="0.0" y="0.0" width="107.5" height="30"/>
@@ -114,11 +114,19 @@
                                 <rect key="frame" x="12" y="42" width="382" height="136"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o0s-iT-byT">
+                                <rect key="frame" x="138" y="412" width="250" height="44"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="1un-mH-43u" firstAttribute="top" secondItem="HAn-Eo-83E" secondAttribute="bottom" constant="8" id="06E-h3-3nD"/>
                             <constraint firstItem="fbG-cW-zz3" firstAttribute="leading" secondItem="kif-Pn-rj8" secondAttribute="leading" constant="12" id="5EE-Ir-PuH"/>
+                            <constraint firstItem="o0s-iT-byT" firstAttribute="leading" secondItem="1un-mH-43u" secondAttribute="trailing" constant="51" id="7gM-Yg-VE3"/>
                             <constraint firstItem="t9s-Fe-AdC" firstAttribute="top" secondItem="1un-mH-43u" secondAttribute="bottom" constant="8" id="9Sc-mu-tqc"/>
                             <constraint firstItem="kif-Pn-rj8" firstAttribute="trailing" secondItem="IiU-qf-jux" secondAttribute="trailing" constant="20" id="BB8-QI-1ly"/>
                             <constraint firstItem="kif-Pn-rj8" firstAttribute="trailing" secondItem="5lX-3r-dFU" secondAttribute="trailing" constant="15" id="ENd-dx-Adw">
@@ -135,10 +143,15 @@
                                 <variation key="heightClass=compact-widthClass=regular" constant="450"/>
                             </constraint>
                             <constraint firstItem="1un-mH-43u" firstAttribute="top" secondItem="HAn-Eo-83E" secondAttribute="bottom" constant="8" id="UjY-e7-VS7"/>
+                            <constraint firstItem="o0s-iT-byT" firstAttribute="top" secondItem="Jfh-C6-YRX" secondAttribute="top" constant="412" id="V32-uW-KFr">
+                                <variation key="heightClass=compact-widthClass=regular" constant="235"/>
+                            </constraint>
                             <constraint firstItem="HAn-Eo-83E" firstAttribute="leading" secondItem="kif-Pn-rj8" secondAttribute="leading" constant="16" id="Yx4-qm-GUc">
                                 <variation key="heightClass=compact-widthClass=regular" constant="450"/>
                             </constraint>
+                            <constraint firstItem="kif-Pn-rj8" firstAttribute="trailing" secondItem="o0s-iT-byT" secondAttribute="trailing" constant="26" id="ZQD-zM-isE"/>
                             <constraint firstItem="kif-Pn-rj8" firstAttribute="trailing" secondItem="t9s-Fe-AdC" secondAttribute="trailing" constant="16" id="aM0-Jh-nm5"/>
+                            <constraint firstItem="o0s-iT-byT" firstAttribute="centerY" secondItem="1un-mH-43u" secondAttribute="centerY" constant="-1.5" id="bb0-OO-fNX"/>
                             <constraint firstItem="5lX-3r-dFU" firstAttribute="top" secondItem="fbG-cW-zz3" secondAttribute="bottom" constant="4" id="beD-id-Sao"/>
                             <constraint firstItem="5lX-3r-dFU" firstAttribute="top" secondItem="Jfh-C6-YRX" secondAttribute="top" constant="182" id="dZO-j7-3fw">
                                 <variation key="heightClass=compact-widthClass=regular" constant="180"/>
@@ -154,6 +167,7 @@
                             <constraint firstItem="IiU-qf-jux" firstAttribute="top" secondItem="kif-Pn-rj8" secondAttribute="top" constant="173" id="rCx-Wi-234">
                                 <variation key="heightClass=compact-widthClass=regular" constant="10"/>
                             </constraint>
+                            <constraint firstItem="o0s-iT-byT" firstAttribute="top" secondItem="HAn-Eo-83E" secondAttribute="bottom" constant="26" id="w0z-UQ-SK8"/>
                             <constraint firstItem="5lX-3r-dFU" firstAttribute="leading" secondItem="kif-Pn-rj8" secondAttribute="leading" constant="16" id="zQz-uo-e4I">
                                 <variation key="heightClass=compact-widthClass=regular" constant="16"/>
                             </constraint>
@@ -167,6 +181,7 @@
                         <outlet property="cpuScoreLbl" destination="HAn-Eo-83E" id="eHt-F7-Cp7"/>
                         <outlet property="dealBtn" destination="dzg-7a-7ME" id="uLj-oS-obA"/>
                         <outlet property="deckImage" destination="1un-mH-43u" id="kyg-nT-xHF"/>
+                        <outlet property="gameLbl" destination="o0s-iT-byT" id="Ogu-xC-8Tq"/>
                         <outlet property="mainView" destination="Jfh-C6-YRX" id="eJh-Qc-5St"/>
                         <outlet property="userBalanceLbl" destination="JAo-R7-lrU" id="eym-LS-a0v"/>
                         <outlet property="userBetLbl" destination="dK1-TP-cQH" id="GeJ-gW-Tzc"/>

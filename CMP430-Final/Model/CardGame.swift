@@ -17,6 +17,7 @@ struct CardGame
     var cpuScore = 0
     var userBalance = 100
     var userBet = 0
+    var gameLbl = ""
     
     init() {
         newGame()
@@ -125,18 +126,22 @@ struct CardGame
             
             if userScore > cpuScore
             {
-                if userScore >= cpuScore * 2{
+                if userScore >= cpuScore * 2
+                {
                     userBalance += userBet*2
-                }else{
+                    gameLbl = "Jackpot! You're a Winner + \(userBet * 2)..."
+                }
+                else
+                {
                     userBalance += userBet
                 }
-                print("won")
+                gameLbl = "Congrats! You're a Winner + \(userBet)..."
             }
             
             if cpuScore > userScore
             {
                 userBalance -= userBet
-                print("lost")
+                 gameLbl = "Tough Luck! You Lost - \(userBet)..."
             }
             //userBet = 0
         }

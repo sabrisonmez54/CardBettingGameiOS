@@ -15,6 +15,7 @@ class ThreeCardViewController: UIViewController {
     @IBOutlet weak var cardContainerView: CardContainerView!
     var game = CardGame()
     
+    @IBOutlet weak var gameLbl: UILabel!
     @IBOutlet weak var dealBtn: UIButton!
     @IBOutlet weak var deckImage: UIImageView!
     @IBOutlet weak var userScoreLbl: UILabel!
@@ -125,11 +126,13 @@ class ThreeCardViewController: UIViewController {
                 game.userScore = 0
                 game.checkScore()
                 updateLabels()
+                gameLbl.isHidden = false
                 numberOfPresses = 0
                 dealBtn.isEnabled.toggle()
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 5.0, execute:
                 {
+                    self.gameLbl.isHidden = true
                     self.numberOfswipes = 0
                     self.game.userScore = 0
                     self.game.userBet = 0
@@ -165,7 +168,9 @@ class ThreeCardViewController: UIViewController {
         updateLabels()
         
     }
-    func updateLabels(){
+    func updateLabels()
+    {
+        gameLbl.text = game.gameLbl
         cpuScoreLbl.text = "CPU Score: \(game.cpuScore)"
         userScoreLbl.text = "Score: \(game.userScore)"
         userBalanceLbl.text = "Balance: $\(game.userBalance)"
@@ -174,7 +179,9 @@ class ThreeCardViewController: UIViewController {
     
     func updateViewFromModel()
     {
+       
        updateLabels()
+        gameLbl.isHidden = true
         
         for view in self.cardContainerView.subviews {
             view.removeFromSuperview()
