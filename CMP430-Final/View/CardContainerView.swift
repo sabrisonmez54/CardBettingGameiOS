@@ -14,7 +14,7 @@ class CardContainerView: UIView
     
     override func layoutSubviews()
     {
-        let grid = Grid(for: self.frame, withNoOfFrames: self.subviews.count, forIdeal: 1.0)
+        let grid = Grid(for: self.frame, withNoOfFrames: self.subviews.count, forIdeal: 0.8)
         
         for index in self.subviews.indices{
             if var frame = grid[index]
