@@ -145,6 +145,7 @@
                         <outlet property="cpuScoreLbl" destination="HAn-Eo-83E" id="eHt-F7-Cp7"/>
                         <outlet property="dealBtn" destination="dzg-7a-7ME" id="uLj-oS-obA"/>
                         <outlet property="deckImage" destination="1un-mH-43u" id="kyg-nT-xHF"/>
+                        <outlet property="mainView" destination="Jfh-C6-YRX" id="eJh-Qc-5St"/>
                         <outlet property="userBalanceLbl" destination="JAo-R7-lrU" id="eym-LS-a0v"/>
                         <outlet property="userBetLbl" destination="dK1-TP-cQH" id="GeJ-gW-Tzc"/>
                         <outlet property="userScoreLbl" destination="Rzf-zl-Cdc" id="aNJ-QO-cbv"/>

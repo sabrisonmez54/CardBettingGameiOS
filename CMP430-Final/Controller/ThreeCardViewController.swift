@@ -10,6 +10,7 @@ import UIKit
 
 class ThreeCardViewController: UIViewController {
 
+    @IBOutlet var mainView: UIView!
     @IBOutlet weak var cpuCardContainerView: CardContainerView!
     @IBOutlet weak var cardContainerView: CardContainerView!
     var game = CardGame()
@@ -21,6 +22,7 @@ class ThreeCardViewController: UIViewController {
     @IBOutlet weak var userBetLbl: UILabel!
     @IBOutlet weak var cpuScoreLbl: UILabel!
      var numberOfPresses = 0
+    var numberOfswipes = 0
     
     override func viewDidLoad()
     {
@@ -29,7 +31,6 @@ class ThreeCardViewController: UIViewController {
         updateViewFromModel()
     }
   
-
     
     @IBAction func dealBtnPressed(_ sender: Any)
     {
@@ -73,9 +74,13 @@ class ThreeCardViewController: UIViewController {
             }
             
             for view in self.cardContainerView.subviews {
-                let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(getIndex(_:)))
-                view.addGestureRecognizer(gestureRecognizer)
-                
+                let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
+                swipeRight.direction = UISwipeGestureRecognizer.Direction.right
+                view.addGestureRecognizer(swipeRight)
+//
+//                let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(getIndex(_:)))
+//                view.addGestureRecognizer(gestureRecognizer)
+//
             }
             self.game.calcUserScore()
             self.updateLabels()
@@ -117,11 +122,6 @@ class ThreeCardViewController: UIViewController {
                     })
                 }
                 
-                for view in self.cpuCardContainerView.subviews {
-                    let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(getIndex(_:)))
-                    view.addGestureRecognizer(gestureRecognizer)
-                    
-                }
                 game.userScore = 0
                 game.checkScore()
                 updateLabels()
@@ -153,6 +153,7 @@ class ThreeCardViewController: UIViewController {
     
     @IBAction func resetBtnPressed(_ sender: Any)
     {
+        numberOfswipes = 0
         numberOfPresses = 0
         game.newGame()
         updateLabels()
@@ -164,7 +165,7 @@ class ThreeCardViewController: UIViewController {
         
     }
     func updateLabels(){
-        cpuScoreLbl.text = "Score: \(game.cpuScore)"
+        cpuScoreLbl.text = "CPU Score: \(game.cpuScore)"
         userScoreLbl.text = "Score: \(game.userScore)"
         userBalanceLbl.text = "Balance: $\(game.userBalance)"
         userBetLbl.text = "Bet: $\(game.userBet)"
@@ -207,31 +208,95 @@ class ThreeCardViewController: UIViewController {
     }
     
     
-    
-    @objc func getIndex(_ sender: UITapGestureRecognizer)
-    {
-        if let cardNumber = cardContainerView.subviews.firstIndex(of: sender.view!)
-        {
-            // let view = cardContainerView.subviews[cardNumber]
-            
-            let chosenCardView = sender.view as! PlayingCardView
-            
-            UIView.transition(with: chosenCardView, duration: 1, options: .transitionFlipFromLeft, animations: {
+    @objc func respondToSwipeGesture(gesture: UIGestureRecognizer) {
+        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+            switch swipeGesture.direction {
+            case UISwipeGestureRecognizer.Direction.right:
+                //print("Swiped right")
+                if numberOfswipes<1
+                {
+                    let chosenCardView = gesture.view as! PlayingCardView
+                    let cardNumber = cardContainerView.subviews.firstIndex(of: gesture.view!)
+                    UIView.transition(with: chosenCardView, duration: 1, options: .transitionFlipFromLeft, animations: {
+                        
+                        
+                        
+                        chosenCardView.center = CGPoint(x: self.mainView.frame.size.width, y: self.mainView.frame.origin.y)
+                        chosenCardView.isFaceUp.toggle()
+                        
+                        
+                    }) { finished in
+                        
+                        // completion
+                        chosenCardView.removeFromSuperview()
+                        self.numberOfswipes += 1
+                    }
+                    
+                    self.game.cardsInGameUser.remove(at: cardNumber!)
+                    self.game.addCardsUser(numberOfCardsToAdd: 1)
+                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                    self.game.userScore = 0
+                    self.updateUserCard()
+                    self.updateLabels()
+                        
+                     })
+                    print("usernew: \(game.cardsInGameUser)")
+                }
                 
-                //view.transform = CGAffineTransform(scaleX: 3, y: 3)
                 
-                chosenCardView.isFaceUp.toggle()
-                
-            }) { finished in
-                
-                // completion
-                
-                
+            case UISwipeGestureRecognizer.Direction.down:
+                print("Swiped down")
+            case UISwipeGestureRecognizer.Direction.left:
+                print("Swiped left")
+            case UISwipeGestureRecognizer.Direction.up:
+                print("Swiped up")
+            default:
+                break
             }
-            
-            //updateViewFromModel()
         }
-        
     }
+    
+    func updateUserCard() {
+        
+        
+               // print(game.cardsInGameUser.endIndex)
+            let subView = PlayingCardView()
+            subView.rank = game.cardsInGameUser[game.cardsInGameUser.endIndex - 1].rank.order
+            subView.suit = game.cardsInGameUser[game.cardsInGameUser.endIndex - 1].suit
+            subView.isFaceUp = game.cardsInGameUser[game.cardsInGameUser.endIndex - 1].isFaceUp
+            
+            cardContainerView.addSubview(subView)
+            cardContainerView.isAnimated = true
+            subView.frame = self.deckImage.frame
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                UIView.transition(with: subView, duration: 1, options: .transitionFlipFromLeft, animations: {
+                    
+                    //view.transform = CGAffineTransform(scaleX: 3, y: 3)
+                    
+                    subView.isFaceUp.toggle()
+                    
+                }) { finished in
+                    
+                    // completion
+                }
+            })
+        
+        
+        for view in self.cardContainerView.subviews {
+            let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
+            swipeRight.direction = UISwipeGestureRecognizer.Direction.right
+            view.addGestureRecognizer(swipeRight)
+            //
+            //                let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(getIndex(_:)))
+            //                view.addGestureRecognizer(gestureRecognizer)
+            //
+        }
+        self.game.calcUserScore()
+        self.updateLabels()
+        numberOfPresses += 1
+    }
+    
+   
 }
 
