@@ -14,6 +14,7 @@ class FiveCardViewController: UIViewController {
     @IBOutlet weak var cpuCardContainerView: CardContainerView!
     @IBOutlet weak var cpuScoreLbl: UILabel!
     
+    @IBOutlet weak var betBtn: UIButton!
     @IBOutlet weak var dealBtn: UIButton!
     @IBOutlet var mainView: UIView!
     @IBOutlet weak var gameLbl: UILabel!
@@ -59,6 +60,7 @@ class FiveCardViewController: UIViewController {
                 userCardContainerView.addSubview(subView)
                 userCardContainerView.isAnimated = true
                 subView.frame = self.deckImage.frame
+                betBtn.isEnabled.toggle()
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
                     UIView.transition(with: subView, duration: 1, options: .transitionFlipFromLeft, animations: {
@@ -129,6 +131,7 @@ class FiveCardViewController: UIViewController {
                 gameLbl.isHidden = false
                 numberOfPresses = 0
                 dealBtn.isEnabled.toggle()
+                betBtn.isEnabled.toggle()
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 5.0, execute:
                     {
@@ -139,6 +142,7 @@ class FiveCardViewController: UIViewController {
                         self.game.cpuScore = 0
                         self.updateViewFromModel()
                         self.dealBtn.isEnabled.toggle()
+                        self.betBtn.isEnabled.toggle()
                 })
             }else{
                 let alert = UIAlertController(title: "Insufficient Bet", message: "You need to bet at least $1 to play.", preferredStyle: .alert)
@@ -179,7 +183,7 @@ class FiveCardViewController: UIViewController {
     
     func updateViewFromModel()
     {
-        
+        betBtn.isEnabled.toggle()
         updateLabels()
         gameLbl.isHidden = true
         
@@ -188,13 +192,13 @@ class FiveCardViewController: UIViewController {
         }
         for index in 0...4{
             
-            let subView = PlayingCardView()
+            let subView = StartView()
             subView.rank = game.cards[index].rank.order
             subView.suit = game.cards[index].suit
             subView.isFaceUp = game.cards[index].isFaceUp
             
             userCardContainerView.addSubview(subView)
-            userCardContainerView.isAnimated = true
+            userCardContainerView.isAnimated = false
             
         }
         
@@ -203,13 +207,13 @@ class FiveCardViewController: UIViewController {
         }
         for index in 0...4{
             
-            let subView = PlayingCardView()
+            let subView = StartView()
             subView.rank = game.cards[index].rank.order
             subView.suit = game.cards[index].suit
             subView.isFaceUp = game.cards[index].isFaceUp
             
             cpuCardContainerView.addSubview(subView)
-            cpuCardContainerView.isAnimated = true
+            cpuCardContainerView.isAnimated = false
             
         }
         

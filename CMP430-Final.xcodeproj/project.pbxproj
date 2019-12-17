@@ -20,6 +20,7 @@
 		1E533C5623A1A375006BEAB9 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E533C5523A1A375006BEAB9 /* Grid.swift */; };
 		1E533C5823A1A45D006BEAB9 /* CardGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E533C5723A1A45D006BEAB9 /* CardGame.swift */; };
 		1E7912E823A5667300BFD7F2 /* FiveCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7912E723A5667300BFD7F2 /* FiveCardViewController.swift */; };
+		1E7912EA23A5714200BFD7F2 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7912E923A5714200BFD7F2 /* StartView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		1E533C5523A1A375006BEAB9 /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
 		1E533C5723A1A45D006BEAB9 /* CardGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGame.swift; sourceTree = "<group>"; };
 		1E7912E723A5667300BFD7F2 /* FiveCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiveCardViewController.swift; sourceTree = "<group>"; };
+		1E7912E923A5714200BFD7F2 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				1E533C5523A1A375006BEAB9 /* Grid.swift */,
 				1E533C5323A1A363006BEAB9 /* CardContainerView.swift */,
 				1E533C4523A165B3006BEAB9 /* PlayingCardView.swift */,
+				1E7912E923A5714200BFD7F2 /* StartView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -187,6 +190,7 @@
 				1E533C3023A16591006BEAB9 /* AppDelegate.swift in Sources */,
 				1E533C5823A1A45D006BEAB9 /* CardGame.swift in Sources */,
 				1E533C4723A165B3006BEAB9 /* PlayingCard.swift in Sources */,
+				1E7912EA23A5714200BFD7F2 /* StartView.swift in Sources */,
 				1E7912E823A5667300BFD7F2 /* FiveCardViewController.swift in Sources */,
 				1E533C5623A1A375006BEAB9 /* Grid.swift in Sources */,
 				1E533C4923A165B3006BEAB9 /* PlayingCardDeck.swift in Sources */,
